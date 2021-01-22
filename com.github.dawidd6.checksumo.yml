@@ -10,13 +10,9 @@ finish-args:
   - --socket=wayland
 modules:
   - name: checksumo
-    buildsystem: simple
-    build-options:
-      append-path: /usr/lib/sdk/golang/bin
-    build-commands:
-      - make PREFIX=/ DESTDIR=${FLATPAK_DEST} build install
+    buildsystem: meson
     sources:
       - type: git
         url: https://github.com/dawidd6/checksumo.git
-        tag: v2.1.2
-        commit: aa990de5953a69130959c06aa8f769b13b3f30c2
+        tag: v2.2.0
+        commit: 97e64a05db73d46db8a77b9c70aa36c7f3ea6d77
