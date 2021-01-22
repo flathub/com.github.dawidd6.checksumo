@@ -11,6 +11,8 @@ finish-args:
 modules:
   - name: checksumo
     buildsystem: meson
+    build-options:
+      append-path: /usr/lib/sdk/golang/bin
     sources:
       - type: git
         url: https://github.com/dawidd6/checksumo.git
