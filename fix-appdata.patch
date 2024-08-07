@@ -1,0 +1,24 @@
+From 6ad4738266440e643bc9fcba294aac654ee268ef Mon Sep 17 00:00:00 2001
+From: Sabri Ünal <yakushabb@gmail.com>
+Date: Wed, 7 Aug 2024 12:42:41 +0300
+Subject: [PATCH] Fix appdata papercuts
+
+---
+ data/com.github.dawidd6.checksumo.appdata.xml.in | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/data/com.github.dawidd6.checksumo.appdata.xml.in b/data/com.github.dawidd6.checksumo.appdata.xml.in
+index 185c38c..5c0521e 100644
+--- a/data/com.github.dawidd6.checksumo.appdata.xml.in
++++ b/data/com.github.dawidd6.checksumo.appdata.xml.in
+@@ -42,6 +42,7 @@
+     </screenshots>
+     <content_rating type="oars-1.1" />
+     <translation type="gettext">com.github.dawidd6.checksumo</translation>
++    <launchable type="desktop-id">com.github.dawidd6.checksumo.desktop</launchable>
+     <developer_name>Dawid Dziurla</developer_name>
+     <url type="homepage">https://github.com/dawidd6/checksumo</url>
+     <url type="bugtracker">https://github.com/dawidd6/checksumo/issues</url>
+--
+libgit2 1.7.2
+
