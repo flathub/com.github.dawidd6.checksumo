@@ -2,17 +2,34 @@ app-id: com.github.dawidd6.checksumo
 runtime: org.gnome.Platform
 runtime-version: '3.38'
 sdk: org.gnome.Sdk
-sdk-extensions:
-  - org.freedesktop.Sdk.Extension.golang
 command: checksumo
 finish-args:
   - --socket=fallback-x11
   - --socket=wayland
+cleanup:
+- /lib/sdk/golang
 modules:
+  - name: golang
+    buildsystem: simple
+    sources:
+      - type: archive
+        only-arches:
+          - aarch64
+        url: https://go.dev/dl/go1.15.15.linux-arm64.tar.gz
+        sha256: 714abb01af210473dd6af331094ad6847162eff81a7fc7241d24f5a85496c9fa
+      - type: archive
+        only-arches:
+          - x86_64
+        url: https://go.dev/dl/go1.15.15.linux-amd64.tar.gz
+        sha256: 0885cf046a9f099e260d98d9ec5d19ea9328f34c8dc4956e1d3cd87daaddb345
+    build-commands:
+      - install -d /app/lib/sdk/golang
+      - cp -rpv * /app/lib/sdk/golang
+
   - name: checksumo
     buildsystem: meson
     build-options:
-      append-path: /usr/lib/sdk/golang/bin
+      append-path: /app/lib/sdk/golang/bin
     sources:
       - type: git
         url: https://github.com/dawidd6/checksumo.git
